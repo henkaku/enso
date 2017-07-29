@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HENkaku ◯</title>
+    <style>
+    body {background-color: #141414; color: #cfcfcf; font-family: Verdana, Geneva, sans-serif; text-align: center;}
+    a:link, a:visited, a:hover, a:active {color: #fafafa;}
+    footer {font-size: xx-small;}
+    h1, h2 {font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal; margin: 0.01em;}
+    h1 {font-size: 8em;}
+    h2 {font-size: 4em;}
+    p {max-width: 50em; display: block; margin-left: auto; margin-right: auto; text-align: left;}
+    img {max-width: 100%; height: auto; width: auto\9;}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>変革</h1>
+      <img src="enso.png">
+    </header>
+    <main>
+      <h2>Custom firmware for PS Vita</h2>
+      <p>HENkaku Ensō is the evolution of the <a href="https://henkaku.xyz">HENkaku</a> jailbreak that opened the PS Vita and PSTV to a new universe of customization and user created content. Install it once and your Vita will be permanently hacked--no need to apply it after each reboot. Just enable <a href="https://henkaku.xyz">HENkaku</a>, install the following vpk, launch it, and follow the on-screen instructions.</p>
+      <a href="enso.vpk"><img src="package.png" alt="Download"></a>
+      <p><strong>Does this work with firmware 3.61/3.63/3.65?</strong> No.</p>
+      <p><strong>How do I use this "vpk"?</strong> You need to <a href="https://henkaku.xyz">install HENkaku</a> first. Then open up molecularShell and press "Start" to enable the FTP server. Then connect using a <a href="https://sourceforge.net/projects/filezilla/">FTP client</a> and copy the vpk to "ux0:/data". On your Vita, browse to "ux0:/data" and select the vpk to install it. Then you should have a new bubble in LiveArea which you can launch to install ensō.</p>
+      <p><strong>Will this harm my Vita?</strong> The short answer is "not likely." The long answer is that it does make permanent modifications to your system so there's always the chance that something goes wrong. However, we had months of testing done by over a hundred testers without any major problem so we are fairly confident in the code. Nevertheless, we will not provide any warranty if something wrong does happen so if you do not wish to take the risk, we recommend using the <a href="https://henkaku.xyz/showcase/#/homebrew/0-offline">HENkaku offline installer</a> as a risk-free alternative.</p>
+      <p><strong>How do I uninstall ensō?</strong> First, note that you can "deactivate" ensō without uninstalling it by deleting "ur0:tai/boot_config.txt". You can "reactivate" it again by opening the ensō installer and using the Square option to fix the boot config. Otherwise, you can fully uninstall ensō with the Triangle option. Note that if you no longer wish to use HENkaku, you should clean up any installed homebrew before uninstalling ensō.</p>
+      <p><strong>Help! I installed a bad taiHEN plugin and my Vita doesn't boot anymore!</strong> You can disable taiHEN plugin loading by holding L during boot.</p>
+      <p><strong>Help! I messed up something else and my Vita doesn't boot anymore!</strong> You can reset <strong>all</strong> Vita settings (including non-hack related ones) from <a href="https://www.playstation.com/en-gb/get-help/help-library/system---hardware/power---system-stability/safe-mode-on-playstation-vita/">safe mode</a> by selecting "Restore the PS Vita System". You can also enter safe mode by disconnecting and reconnecting the battery during a failed boot loop. Note this does not uninstall ensō but keeps it inactive. To reactivate it, you must run the ensō installer and use the Square option to fix the boot config.</p>
+      <p><strong>Can I see the source?</strong> We are currently polishing up the source and it will be released soon. If you are a developer, you can contact us about early access. <a href="https://henkaku.xyz/about/">Here</a> is more information on who we are.</p>
+    </main>
+    <footer>
+      <p>HENkaku is not affiliated, sponsored, or otherwise endorsed by Sony Interactive Entertainment, LLC. PlayStation, PS Vita, and PSTV are trademarks or registered trademarks of Sony Interactive Entertainment, LLC. This software is provided "as is" without warranty of any kind under the <a href="https://github.com/henkaku/henkaku/blob/master/LICENSE">MIT License</a>. "<a href="https://www.flickr.com/photos/30151597@N03/2823325892/">ensō</a>" by <a href="https://www.flickr.com/photos/30151597@N03/">ethan</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+    </footer>
+  </body>
+</html>
