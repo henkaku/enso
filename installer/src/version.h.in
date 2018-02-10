@@ -1,0 +1,5 @@
+#pragma once
+
+#define BUILD_DATE "${BUILD_DATE}"
+#define BUILD_CID {${BUILD_CID}}
+#define BUILD_PERSONALIZED (${PERSONALIZED})

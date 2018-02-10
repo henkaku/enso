@@ -1,0 +1,21 @@
+emmc_helper:
+  attributes: 0
+  version:
+    major: 1
+    minor: 1
+  main:
+    start: module_start
+    stop: module_stop
+  modules:
+    emmc_helper:
+      syscall: true
+      functions:
+        - k_ensoCheckOs0
+        - k_ensoCheckMBR
+        - k_ensoCheckBlocks
+        - k_ensoWriteConfig
+        - k_ensoWriteBlocks
+        - k_ensoWriteMBR
+        - k_ensoCheckRealMBR
+        - k_ensoUninstallMBR
+        - k_ensoCleanUpBlocks
