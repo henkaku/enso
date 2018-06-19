@@ -64,7 +64,7 @@ typedef struct SceModuleSelfSectionInfo {
   uint32_t unknown2;
 } __attribute__((packed)) SceModuleSelfSectionInfo;
 
-#ifdef FW_360
+#ifdef FW_365
 
 // firmware specific internal structures
 
@@ -249,28 +249,28 @@ typedef struct SceModuleDecryptContext {
 
 // firmware specific function offsets
 #ifdef DEBUG
-static int (*printf)(const char *fmt, ...) = (void*)0x510137A9;
+static int (*printf)(const char *fmt, ...) = (void*)0x51013919;
 #else
 #define printf(...)
 #endif
-static void *(*memset)(void *dst, int ch, int sz) = (void*)0x51013AD1;
-static void *(*memcpy)(void *dst, const void *src, int sz) = (void *)0x51013A51;
-static void *(*memmove)(void *dst, const void *src, int sz) = (void *)0x51021325;
-static void (*clean_dcache)(void *dst, int len) = (void*)0x5101456D;
+static void *(*memset)(void *dst, int ch, int sz) = (void*)0x51013C41;
+static void *(*memcpy)(void *dst, const void *src, int sz) = (void *)0x51013BC1;
+static void *(*memmove)(void *dst, const void *src, int sz) = (void *)0x5102152D;
+static void (*clean_dcache)(void *dst, int len) = (void*)0x510146DD;
 static int (*read_block_os0)() = (void*)0x510010FD;
-static void (*flush_icache)() = (void*)0x51014521;
-static int (*strncmp)(const char *s1, const char *s2, int len) = (void *)0x51013B30;
-static SceObject *(*get_obj_for_uid)(int uid) = (void *)0x51017649;
+static void (*flush_icache)() = (void*)0x51014691;
+static int (*strncmp)(const char *s1, const char *s2, int len) = (void *)0x51013CA0;
+static SceObject *(*get_obj_for_uid)(int uid) = (void *)0x51017785;
 static int (*module_load)(const SceModuleLoadList *list, int *uids, int count, int) = (void *)0x51001551;
-static int (*sceKernelAllocMemBlock)(const char *name, int type, int size, SceKernelAllocMemBlockKernelOpt *opt) = (void *)0x510086C1;
-static int (*sceKernelGetMemBlockBase)(int32_t uid, void **basep) = (void *)0x510040E5;
-static int (*sceKernelRemapBlock)(int32_t uid, int type) = (void *)0x510086D1;
+static int (*sceKernelAllocMemBlock)(const char *name, int type, int size, SceKernelAllocMemBlockKernelOpt *opt) = (void *)0x51007161;
+static int (*sceKernelGetMemBlockBase)(int32_t uid, void **basep) = (void *)0x510057E1;
+static int (*sceKernelRemapBlock)(int32_t uid, int type) = (void *)0x51007171;
 
 // firmware specific patch offsets
 
 static SceBootArgs *boot_args = (void *)0x51167528;
 static SceSysrootContext **sysroot_ctx_ptr = (void *)0x51138A3C;
-static void **module_load_func_ptr = (void *)0x51027630;
+static void **module_load_func_ptr = (void *)0x510277A8;
 
 // sysstate patches
 #define SCEDISPLAY_LOGO_OFFSET (0x8990)
@@ -279,9 +279,9 @@ static void **module_load_func_ptr = (void *)0x51027630;
 #define SYSSTATE_IS_DEV_MODE_OFFSET (0xE28)
 #define SYSSTATE_RET_CHECK_BUG (0xD92)
 static const uint8_t sysstate_ret_patch[] = {0x13, 0x22, 0xc8, 0xf2, 0x01, 0x02};
-#define SYSSTATE_SD0_STRING (0x2460)
+#define SYSSTATE_SD0_STRING (0x2448)
 static const char ur0_path[] = "ur0:";
-#define SYSSTATE_SD0_PSP2CONFIG_STRING (0x23AE)
+#define SYSSTATE_SD0_PSP2CONFIG_STRING (0x2396)
 static const char ur0_psp2config_path[] = "ur0:tai/boot_config.txt";
 #define SYSSTATE_FINAL_CALL (0x130)
 #define SYSSTATE_FINAL (0x18C9)

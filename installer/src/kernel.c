@@ -28,7 +28,7 @@ enum {
 	FAT_BIN_USEFUL_SIZE = 0x6000 - 0x400,
 
 	OS0_SIZE = 0x3820 * BLOCK_SIZE,
-	OS0_CRC32 = 0xb776951d,
+	OS0_CRC32 = 0x69b0c99d,
 };
 
 typedef struct {
@@ -373,7 +373,7 @@ int check_blocks(void) {
 			crc = crc32(crc, buffer, sizeof(buffer));
 		}
 		printf("crc32[2; 48] = 0x%08x\n", crc);
-		uint32_t known_crc[] = { 0xd40a32e8, 0x8cd78813 };
+		uint32_t known_crc[] = { 0xa6b37650, 0x723111d1 };
 		int found = 0;
 		for (size_t i = 0; i < ARRAYSIZE(known_crc); ++i) {
 			if (crc == known_crc[i]) {

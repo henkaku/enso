@@ -22,13 +22,13 @@ void go(void) {
 
     // we need to patch call to read block 1 instead of block 0 as the master block
     // now that we store a copy of real partition table in block 1
-    *(uint16_t*)0x510200C6 = 0x2101; // movs r1, #1
+    *(uint16_t*)0x510202CE = 0x2101; // movs r1, #1
 
-    clean_dcache((void *)0x510200C0, 0x20);
+    clean_dcache((void *)0x510202C0, 0x20);
     flush_icache();
 
     // reinit os0_dev
-    int (*fat_init_dev)() = (void*)0x5101FD19;
+    int (*fat_init_dev)() = (void*)0x5101FF21;
     char *os0_dev = (void*)0x51167784;
     int ret = fat_init_dev(os0_dev, 0x110000, 0x510010FD, 0x51028010); // os0_dev, flags, read_block, some_storage
 
@@ -89,7 +89,7 @@ void go(void) {
         "mov r3, #0\n"
         "mov sp, %1\n"
         "mov r4, %2\n"
-        "bx r4\n" :: "r" (sp - 0x110), "r" (old_sp), "r" (0x5101F571) : "r0", "r1", "r2", "r3", "r4"
+        "bx r4\n" :: "r" (sp - 0x110), "r" (old_sp), "r" (0x5101F779) : "r0", "r1", "r2", "r3", "r4"
     );
 }
 
