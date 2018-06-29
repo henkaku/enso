@@ -152,7 +152,7 @@ add_dependencies(${SHORT_NAME} emmc_helper_user.suprx)
 vita_create_vpk(${SHORT_NAME}.vpk ${VITA_TITLEID} ${SHORT_NAME}.self
   VERSION ${VITA_VERSION}
   NAME ${VITA_APP_NAME}
-  FILE ${CMAKE_SOURCE_DIR}/res/fat.bin fat.bin
+  FILE ${CMAKE_SOURCE_DIR}/../fat.bin fat.bin
   FILE ${CMAKE_BINARY_DIR}/emmc_helper.skprx emmc_helper.skprx
   FILE ${CMAKE_BINARY_DIR}/emmc_helper_user.suprx emmc_helper.suprx
   FILE ${CMAKE_BINARY_DIR}/kernel2.skprx kernel2.skprx
