@@ -1,8 +1,7 @@
-You need [vitasdk](https://vitasdk.org/).
+You need latest [vitasdk](https://vitasdk.org/).
 
 1. `make` the payload
-2. Copy `fat.bin` to `installer/res`
-3. CMake the installer `mkdir build && cd build && cmake .. && make`
+2. CMake the installer: `mkdir build && cd build && cmake .. && make`
 
 Firmware specific offsets are in first.c and nsbl.h. Logo is raw framebuffer data gzipped. If you make this too big (bigger than original logo size), you WILL perma-brick your Vita.
 
