@@ -19,4 +19,4 @@ second: second.o
 	$(CC) -o $@ $^ $(LDFLAGS) -T second.x
 
 clean:
-	-rm -f fat.bin second.bin first.bin *.o
+	-rm -f first first.bin second second.bin fat.bin *.o

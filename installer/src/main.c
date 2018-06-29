@@ -1,15 +1,17 @@
+#include <psp2/kernel/sysmem.h>
 #include <psp2/kernel/processmgr.h>
 #include <psp2/kernel/modulemgr.h>
 #include <psp2/io/fcntl.h>
 #include <psp2/io/devctl.h>
+#include <psp2/io/stat.h>
 #include <psp2/ctrl.h>
 #include <psp2/shellutil.h>
+#include <psp2/sysmodule.h>
+#include <psp2/vshbridge.h>
 #include <psp2/net/http.h>
 #include <psp2/net/net.h>
-#include <psp2/sysmodule.h>
-#include <psp2/kernel/sysmem.h>
 #include <psp2/net/netctl.h>
-#include <psp2/io/stat.h>
+
 #include <taihen.h>
 
 #include <stdio.h>
@@ -23,9 +25,6 @@
 #define printf psvDebugScreenPrintf
 #define ARRAYSIZE(x) ((sizeof(x)/sizeof(0[x])) / ((size_t)(!(sizeof(x) % sizeof(0[x])))))
 
-int _vshSblAimgrGetConsoleId(char cid[32]);
-int sceKernelPowerLock(int x);
-int sceKernelPowerUnlock(int x);
 int sceSblSsUpdateMgrSetBootMode(int x);
 int vshPowerRequestColdReset(void);
 
