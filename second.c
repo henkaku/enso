@@ -50,11 +50,6 @@ static int (*sdstor_read_sector_async)(void* ctx, int sector, char* buffer, int 
 static int (*sdstor_read_sector)(void* ctx, int sector, char* buffer, int nSectors) = NULL;
 static void *(*get_sd_context_part_validate_mmc)(int sd_ctx_index) = NULL;
 
-// debug globals
-#ifdef DEBUG
-static int (*set_crash_flag)(int) = NULL;
-#endif
-
 // sigpatch globals
 static int g_sigpatch_disabled = 0;
 static int g_homebrew_decrypt = 0;
@@ -270,7 +265,6 @@ static int module_load_patched(const SceModuleLoadList *list, int *uids, int cou
         obj = get_obj_for_uid(uids[sysmem_idx]);
         if (obj != NULL) {
             mod = (SceModuleObject *)&obj->data;
-            FIND_EXPORT(set_crash_flag, 0x88C17370, 0xF857CDD6);
             FIND_EXPORT(printf, 0x88758561, 0x391B74B7);
         } else {
             printf("module data invalid for sysmem.skprx!\n");
