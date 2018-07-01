@@ -24,8 +24,6 @@
 #define ARRAYSIZE(x) ((sizeof(x)/sizeof(0[x])) / ((size_t)(!(sizeof(x) % sizeof(0[x])))))
 
 int _vshSblAimgrGetConsoleId(char cid[32]);
-int sceKernelPowerLock(int x);
-int sceKernelPowerUnlock(int x);
 int sceSblSsUpdateMgrSetBootMode(int x);
 int vshPowerRequestColdReset(void);
 
