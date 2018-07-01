@@ -765,7 +765,7 @@ int check_real_mbr() {
 	int ret = 0;
 	int fd = 0;
 
-	printf("check_mbr\n");
+	printf("check_real_mbr\n");
 
 	static master_block_t master;
 	ret = fd = ksceIoOpen(device, SCE_O_RDONLY, 0777);
@@ -774,11 +774,7 @@ int check_real_mbr() {
 		ret = -1;
 		goto cleanup;
 	}
-	if ((ret = ksceIoLseek(fd, OFF_REAL_PARTITION_TABLE, SCE_SEEK_SET)) != OFF_REAL_PARTITION_TABLE) {
-		printf("failed to seek the device: 0x%08x\n", ret);
-		ret = -1;
-		goto cleanup;
-	}
+
 	if ((ret = ksceIoRead(fd, &master, sizeof(master))) != sizeof(master)) {
 		printf("failed to read real master block: 0x%08x\n", ret);
 		ret = -1;
@@ -788,7 +784,7 @@ int check_real_mbr() {
 	ret = 0;
 	if (!is_mbr(&master)) {
 		printf("error: real master block is not MBR\n");
-		printf("likely the exploit was not installed yet\n");
+		printf("this really shouldn't happen...\n");
 		ret = -1;
 	}
 
@@ -824,22 +820,26 @@ int uninstall_mbr() {
 		goto cleanup;
 	}
 
-	ret = wfd = ksceIoOpen(device, SCE_O_WRONLY, 0777);
-	if (ret < 0) {
-		printf("failed to open the device for write: 0x%08x\n", ret);
-		ret = -1;
-		goto cleanup;
-	}
-
-	if ((ret = ksceIoLseek(rfd, OFF_REAL_PARTITION_TABLE, SCE_SEEK_SET)) != OFF_REAL_PARTITION_TABLE) {
-		printf("failed to seek the device: 0x%08x\n", ret);
-		ret = -1;
-		goto cleanup;
-	}
-
 	static master_block_t master;
 	if ((ret = ksceIoRead(rfd, &master, sizeof(master))) != sizeof(master)) {
 		printf("failed to read real master block: 0x%08x\n", ret);
+		ret = -1;
+		goto cleanup;
+	}
+
+	ksceIoClose(rfd);
+	rfd = 0;
+
+	if (!is_mbr(&master)) {
+		printf("error: real master block is not MBR\n");
+		printf("this really shouldn't happen...\n");
+		ret = -1;
+		goto cleanup;
+	}
+
+	ret = wfd = ksceIoOpen(device, SCE_O_WRONLY, 0777);
+	if (ret < 0) {
+		printf("failed to open the device for write: 0x%08x\n", ret);
 		ret = -1;
 		goto cleanup;
 	}
