@@ -1,5 +1,5 @@
 CC=arm-vita-eabi-gcc
-CFLAGS=-Os -fno-builtin-printf -fPIC -fno-builtin-memset -Wall -Wextra -Wno-unused-variable -DFW_365
+CFLAGS=-Os -fno-builtin-printf -fPIC -fno-builtin-memset -Wall -Wextra -Wno-unused-variable -DFW_360
 OBJCOPY=arm-vita-eabi-objcopy
 LDFLAGS=-nodefaultlibs -nostdlib
 
@@ -19,4 +19,4 @@ second: second.o
 	$(CC) -o $@ $^ $(LDFLAGS) -T second.x
 
 clean:
-	-rm -f first first.bin second second.bin fat.bin *.o
+	-rm -f fat.bin second.bin first.bin *.o
