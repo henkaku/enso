@@ -95,10 +95,9 @@ target_link_libraries(emmc_helper
   gcc
   SceThreadmgrForDriver_stub
   SceModulemgrForDriver_stub
-  SceModulemgrForKernel_stub
+  SceModulemgrForKernel_367_stub
   SceSblAIMgrForDriver_stub
   SceIofilemgrForDriver_stub
-  SceSysmemForKernel_stub
   SceSysmemForDriver_stub
   taihenForKernel_stub
 )
