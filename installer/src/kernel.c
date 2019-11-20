@@ -30,6 +30,7 @@ enum {
 	OS0_SIZE = 0x3820 * BLOCK_SIZE,
 	OS0_CRC32 = 0xb776951d,
 	OS0_CRC32_TOOL = 0x1461191e,
+	OS0_CRC32_DEX = 0xd9c8046b,
 };
 
 typedef struct {
@@ -197,7 +198,7 @@ int check_os0(void) {
 	}
 
 	printf("got os0 crc32: 0x%08x\n", crc);
-	if ((crc != OS0_CRC32) && (crc != OS0_CRC32_TOOL)) {
+	if ((crc != OS0_CRC32) && (crc != OS0_CRC32_TOOL) && (crc != OS0_CRC32_DEX)) {
 		printf("error: crc does not match!\n");
 		ret = -1;
 	} else {
