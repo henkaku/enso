@@ -78,8 +78,9 @@ target_link_libraries(${SHORT_NAME}
   taihen_stub
   emmc_helper_user_stub_weak
 )
-
+set(VITA_MAKE_FSELF_FLAGS "${VITA_MAKE_FSELF_FLAGS} -a 0x2808000000000000")
 vita_create_self(${SHORT_NAME}.self ${SHORT_NAME} UNSAFE)
+set(VITA_MAKE_FSELF_FLAGS "${VITA_MAKE_FSELF_FLAGS} -a 0x2f00000000000001")
 
 # emmc_helper: kernel version
 add_executable(emmc_helper

@@ -1,3 +1,7 @@
+Modded version of enso to add support for 03.600.31 DevKit and TestKit firmwares.
+
+# Building: 
+
 You need [vitasdk](https://vitasdk.org/).
 
 1. `make` the payload
